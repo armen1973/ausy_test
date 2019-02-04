@@ -1,0 +1,7 @@
+events.form:
+  path: '/events-form'
+  defaults:
+    _title: 'Events form'
+    _form: '\Drupal\events\Form\EventsForm'
+  requirements:
+    _access: 'TRUE'

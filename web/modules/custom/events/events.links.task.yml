@@ -1,0 +1,22 @@
+# Events entity routing definition
+events_entity.settings_tab:
+  route_name: events_entity.settings
+  title: 'Settings'
+  base_route: events_entity.settings
+
+entity.events_entity.canonical:
+  route_name: entity.events_entity.canonical
+  base_route: entity.events_entity.canonical
+  title: 'View'
+
+entity.events_entity.edit_form:
+  route_name: entity.events_entity.edit_form
+  base_route: entity.events_entity.canonical
+  title: 'Edit'
+
+entity.events_entity.delete_form:
+  route_name:  entity.events_entity.delete_form
+  base_route:  entity.events_entity.canonical
+  title: Delete
+  weight: 10
+

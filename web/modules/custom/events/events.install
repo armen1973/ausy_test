@@ -1,0 +1,51 @@
+<?php
+
+use Drupal\Core\Database\Database;
+/*
+ * Implements hook_schema().
+ */
+function events_schema() {
+    $schema['events_registered'] = [
+        'description' => 'List of registered.',
+        'fields' => [
+            'id' => [
+                'description' => 'Primary Key: Unique history ID.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ],
+            'uid' => [
+                'description' => 'Store user ID.',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ],
+           'firstName' => [
+                'description' => 'Registered First Name.',
+                'type' => 'varchar',
+                'length' => 80,
+                'not null' => TRUE,
+            ],
+            'lasteName' => [
+                'description' => 'Registered Last Name.',
+                'type' => 'varchar',
+                'length' => 80,
+                'not null' => TRUE,
+            ],
+            'email' => [
+                'description' => 'ad number',
+                'type' => 'varchar',
+                'length' => 80,
+                'not null' => TRUE,
+            ],
+        ],
+        'primary key' => ['id'],
+    ];
+    return $schema;
+}
+
+function events_uninstall() {
+    // Create the styles directory and ensure it's writable.
+    \Drupal::state()->delete('Events');
+}
+

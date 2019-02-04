@@ -1,0 +1,7 @@
+name: Events form
+description: Events form module for D8 developer training
+type: module
+core: 8.x
+version: 8.x-1.0
+package: Training
+configure: 'TRUE'
