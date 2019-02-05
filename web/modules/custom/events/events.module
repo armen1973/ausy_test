@@ -23,3 +23,13 @@
      return $variable;
 
  }
+
+ function events_theme(){
+
+     return [
+         'test' => [
+             'items' => NULL,
+         ],
+     ];
+
+ }

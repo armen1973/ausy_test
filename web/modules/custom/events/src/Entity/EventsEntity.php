@@ -214,6 +214,9 @@ class EventsEntity extends ContentEntityBase implements EventsEntityInterface {
       ->setLabel(t('Changed'))
       ->setDescription(t('The time that the entity was last edited.'));
 
+      //**********************************************
+      //**********************************************
+
     return $fields;
   }
 

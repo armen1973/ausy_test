@@ -1,0 +1,14 @@
+uuid: 1287c716-e4a4-447d-b229-5c9e29590d51
+name: 'AUSY TEST'
+mail: armen@mkrtchian.fr
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

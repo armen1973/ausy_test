@@ -31,20 +31,14 @@ class Events extends BlockBase {
 
         $items = [];
         foreach($result as $cle) {
-            $items[] = [$cle->firstName,$cle->lasteName];
+            $items[] = $cle->firstName .' '. $cle->lasteName;
         }
-//ksm($items);
         $list = [
             '#theme' => 'item_list',
+            '#list_type'=>'ul',
             '#items' => $items,
-            '#title' => $this->t('Subscriber list'),
+            '#title' => 'Registered user',
         ];
-ksm($list);
-        return [
-            '#items' => $list,
-            /*'#cache' => [
-                'tags' => \Drupal::entityManager()->getDefinition('node')->getListCacheTags(),
-            ],*/
-        ];
+        return $list;
     }
 }

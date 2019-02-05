@@ -1,0 +1,22 @@
+uuid: d39e33af-66c2-45fa-8328-701cf0cdc10f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - testtheme
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
+id: testtheme_messages
+theme: testtheme
+region: header
+weight: -50
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

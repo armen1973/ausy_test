@@ -1,0 +1,37 @@
+uuid: 380b5612-c738-48eb-9d56-5a7f3d537d20
+langcode: en
+status: true
+dependencies:
+  module:
+    - events
+    - node
+    - user
+  theme:
+    - testtheme
+id: events
+theme: testtheme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: events_block
+settings:
+  id: events_block
+  label: Events
+  provider: events
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      events: events
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

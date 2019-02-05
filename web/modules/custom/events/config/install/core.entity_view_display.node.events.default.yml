@@ -1,23 +1,49 @@
 langcode: en
 status: true
 dependencies:
-    config:
-        - field.field.node.events.body
-        - node.type.events
-    module:
-        - text
-        - user
+  config:
+    - field.field.node.events.field_end_date
+    - field.field.node.events.field_image
+    - field.field.node.events.field_start_date
+    - node.type.events
+  module:
+    - datetime
+    - image
+    - user
+_core:
+  default_config_hash: QcM1PDvvYhO_kzNvxGfFIrhcCccj4jITPf_FPObeMeo
 id: node.events.default
 targetEntityType: node
 bundle: events
 mode: default
 content:
-    body:
-        label: hidden
-        type: text_default
-        weight: 101
-        settings: {  }
-        third_party_settings: {  }
-    links:
-        weight: 100
-hidden: {  }
+  field_end_date:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 2
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_start_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  links: true

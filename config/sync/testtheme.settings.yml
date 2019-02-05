@@ -1,0 +1,21 @@
+schemas:
+  bootstrap: 8000
+  testtheme: 8000
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://localhost/ausy_test/web/themes/custom/testtheme/favicon.ico'
+  use_default: true
+image_shape: img-circle
+navbar_position: fixed-top
+logo:
+  path: 'public://logo_3.png'
+  url: ''
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+cdn_jsdelivr_theme: cerulean
+table: ''

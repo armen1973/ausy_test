@@ -99,7 +99,7 @@ achieve that by registering `@composer drupal:scaffold` as post-install and post
 
 ```json
 "scripts": {
-    "post-install-cmd": [
+    --install: [
         "@composer drupal:scaffold",
         "..."
     ],

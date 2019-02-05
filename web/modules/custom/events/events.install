@@ -47,5 +47,10 @@ function events_schema() {
 function events_uninstall() {
     // Create the styles directory and ensure it's writable.
     \Drupal::state()->delete('Events');
+
+    //$content_type = \Drupal::entityManager()->getStorage('events_entity')->load('id');
+    //$content_type->delete();
+
+
 }
 
