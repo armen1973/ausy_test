@@ -1,17 +1,16 @@
-uuid: 380b5612-c738-48eb-9d56-5a7f3d537d20
+uuid: 48837f4e-f14b-4d44-ae26-affc6df111ef
 langcode: en
 status: true
 dependencies:
   module:
     - events
-    - node
-    - user
+    - system
   theme:
     - testtheme
 id: events
 theme: testtheme
-region: sidebar_second
-weight: 0
+region: sidebar_first
+weight: -7
 provider: null
 plugin: events_block
 settings:
@@ -20,18 +19,8 @@ settings:
   provider: events
   label_display: '0'
 visibility:
-  node_type:
-    id: node_type
-    bundles:
-      events: events
+  request_path:
+    id: request_path
+    pages: '/events_entity/*'
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-      administrator: administrator
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
+    context_mapping: {  }

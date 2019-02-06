@@ -1,26 +1,26 @@
-uuid: 98a90761-9ff2-4d5d-b685-fc112db67b44
+uuid: ddd635b9-a994-4620-b977-9be4fe7121d7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_image
-    - node.type.events
+    - field.storage.events_entity.field_picture
   module:
+    - events
     - image
 _core:
-  default_config_hash: tVuJBqnTnWQcN69IuOJ70fjr7Kcj8UfcPBnA9IBrbe4
-id: node.events.field_image
-field_name: field_image
-entity_type: node
-bundle: events
-label: picture
+  default_config_hash: qOmuEGmdor5JR_PP3dfj_MLNYvXlZCnhbPpvQypHhZw
+id: events_entity.events_entity.field_picture
+field_name: field_picture
+entity_type: events_entity
+bundle: events_entity
+label: Picture
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_directory: './images/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

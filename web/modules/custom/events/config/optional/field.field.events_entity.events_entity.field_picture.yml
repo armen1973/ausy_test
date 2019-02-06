@@ -2,24 +2,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_image
-    - node.type.events
+    - field.storage.events_entity.field_picture
   module:
+    - events
     - image
-_core:
-  default_config_hash: kZ3VNszL4ZYqRk25ml3bAFsc76JS1ct4t0SBmYO0YF4
-id: node.events.field_image
-field_name: field_image
-entity_type: node
-bundle: events
-label: picture
+id: events_entity.events_entity.field_picture
+field_name: field_picture
+entity_type: events_entity
+bundle: events_entity
+label: Picture
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_directory: './images/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

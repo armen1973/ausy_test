@@ -13,7 +13,7 @@ _core:
 id: testtheme_tools
 theme: testtheme
 region: sidebar_second
-weight: 0
+weight: -6
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

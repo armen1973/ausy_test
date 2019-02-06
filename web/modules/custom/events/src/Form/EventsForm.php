@@ -144,6 +144,7 @@ class EventsForm extends FormBase {
 
         $result = 'You are registered for the event';
         $form_state->setRebuild()->addRebuildInfo('messageresult', $result);
+        $form_state->setRedirect('entity.events_entity.canonical');
 
     }
 }

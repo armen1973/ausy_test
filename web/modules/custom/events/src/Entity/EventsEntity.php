@@ -47,11 +47,11 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *   },
  *   links = {
- *     "canonical" = "/admin/structure/events_entity/{events_entity}",
- *     "add-form" = "/admin/structure/events_entity/add",
- *     "edit-form" = "/admin/structure/events_entity/{events_entity}/edit",
- *     "delete-form" = "/admin/structure/events_entity/{events_entity}/delete",
- *     "collection" = "/admin/structure/events_entity",
+ *     "canonical" = "/events_entity/{events_entity}",
+ *     "add-form" = "/events_entity/add",
+ *     "edit-form" = "/events_entity/{events_entity}/edit",
+ *     "delete-form" = "/events_entity/{events_entity}/delete",
+ *     "collection" = "/admin/content/events_entity",
  *   },
  *   field_ui_base_route = "events_entity.settings"
  * )

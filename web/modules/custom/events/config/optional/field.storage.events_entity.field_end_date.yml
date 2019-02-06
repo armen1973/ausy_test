@@ -3,12 +3,10 @@ status: true
 dependencies:
   module:
     - datetime
-    - node
-_core:
-  default_config_hash: _wlVzRTfHk4Pt0t65VnFwmzr7IJkL7gcC7xML532DuQ
-id: node.field_start_date
-field_name: field_start_date
-entity_type: node
+    - events
+id: events_entity.field_end_date
+field_name: field_end_date
+entity_type: events_entity
 type: datetime
 settings:
   datetime_type: date

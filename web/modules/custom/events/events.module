@@ -2,20 +2,29 @@
 
     use \Drupal\node\Entity\NodeType;
     use \Drupal\Core\Entity\EntityInterface;
- /**
-  * Implements hook_preprocess_HOOK() for radix-brenham--node--2.html.twig.
-  */
- function events_preprocess_node(&$variable, $node) {
 
-     $node = \Drupal::routeMatch()->getParameter('node');
-     if ($node) {
-         $nodetype = $node->bundle();
-         //ksm($node);
+/**
+ * @param $variable
+ * @param $entity
+ * @return mixed
+ */
+ function events_preprocess_page(&$variable, $entity ) {
+
+     $entity = \Drupal::routeMatch()->getParameter('events_entity');
+     //kint($entity);
+     //exit;
+     if ($entity) {
+         $entitytype = $entity->bundle();
+         //kint($entitytype);
+         //exit;
+
          $form = \Drupal::formBuilder()
              ->getForm('Drupal\events\Form\EventsForm');
-
-         if('events' == $nodetype) {
+         //kint($form);
+         //exit;
+         if('events_entity' == $entitytype) {
              $variable['my_events'] = $form;
+     //kint($variable);
              return $variable;
          }
          return $variable;
@@ -24,12 +33,3 @@
 
  }
 
- function events_theme(){
-
-     return [
-         'test' => [
-             'items' => NULL,
-         ],
-     ];
-
- }

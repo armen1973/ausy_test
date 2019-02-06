@@ -2,16 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_start_date
-    - node.type.events
+    - field.storage.events_entity.field_start_date
   module:
     - datetime
-_core:
-  default_config_hash: g4QUYyEsjnUfpT2-94aJsIVGHWWzmn9Y8V7EmdSiK3w
-id: node.events.field_start_date
+    - events
+id: events_entity.events_entity.field_start_date
 field_name: field_start_date
-entity_type: node
-bundle: events
+entity_type: events_entity
+bundle: events_entity
 label: 'Start date'
 description: ''
 required: true

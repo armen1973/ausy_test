@@ -1,14 +1,15 @@
+uuid: 580f4d34-8bf6-4e70-917e-3bcc21966084
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
-    - node
+    - events
 _core:
-  default_config_hash: M5TGPzowMVZISPyBmoV1CjVvfZsId7tR2M3LN7buut4
-id: node.field_end_date
-field_name: field_end_date
-entity_type: node
+  default_config_hash: bSZsoiQ1UQ-JlpJR2XiERefLeRUNSvtPCkg3ddxrEuA
+id: events_entity.field_start_date
+field_name: field_start_date
+entity_type: events_entity
 type: datetime
 settings:
   datetime_type: date
