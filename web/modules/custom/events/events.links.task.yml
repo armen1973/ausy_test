@@ -20,3 +20,7 @@ entity.events_entity.delete_form:
   title: Delete
   weight: 10
 
+entity.events_entity.collection:
+  route_name: entity.events_entity.collection
+  base_route: system.admin_content
+  title: Events

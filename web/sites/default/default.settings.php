@@ -567,7 +567,7 @@ if ($settings['hash_salt']) {
  * This applies when the site is explicitly set to maintenance mode through the
  * administration page or when the database is inactive due to an error.
  * The template file should also be copied into the theme. It is located inside
- * 'core/modules/system/templates/maintenance-page.html.twig'.
+ * 'core/modules/system/templates/maintenance-page--events-entity--%.html.twig'.
  *
  * Note: This setting does not apply to installation and update pages.
  */

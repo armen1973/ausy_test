@@ -39,6 +39,8 @@ class Events extends BlockBase {
             '#items' => $items,
             '#title' => 'Registered user',
         ];
-        return $list;
+        return [
+            'list' => $list,
+            ];
     }
 }

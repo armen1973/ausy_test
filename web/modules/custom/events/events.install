@@ -48,9 +48,21 @@ function events_uninstall() {
     // Create the styles directory and ensure it's writable.
     \Drupal::state()->delete('Events');
 
-    //$content_type = \Drupal::entityManager()->getStorage('events_entity')->load('id');
-    //$content_type->delete();
+/*
+    // Load services.
+        $queryFactory = \Drupal::service('entity.query');
+      $nodeStorage  = \Drupal::entityManager()->getStorage('node');
 
+      // Query all entity.
+      $query = $queryFactory->get('node')
+          ->condition('type', 'events_entity'); // <-- Change the type here for yours.
+      $nids = $query->execute();
 
+      // Delete entities.
+      if (!empty($nids)) {
+          $entities = $nodeStorage->loadMultiple($nids);
+          $nodeStorage->delete($entities);
+      }
+*/
 }
 
