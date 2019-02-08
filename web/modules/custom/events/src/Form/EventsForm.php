@@ -38,10 +38,6 @@ class EventsForm extends FormBase {
             '#type' => 'textfield',
             '#title' => $this->t('First Name '),
             '#required' => "TRUE",
-            '#ajax' => array(
-                'callback' => array($this, 'validateTextAjax'),
-                'event' => 'change',
-            ),
             '#suffix' => '<span id="text-message-valeur1"></span>',
         );
 
@@ -50,10 +46,6 @@ class EventsForm extends FormBase {
             '#title' => $this
                 ->t('Last Name '),
             '#required' => "TRUE",
-            '#ajax' => array(
-                'callback' => array($this, 'validateTextAjax'),
-                'event' => 'change',
-            ),
             '#suffix' => '<span id="text-message-valeur"></span>',
         );
 
@@ -62,10 +54,6 @@ class EventsForm extends FormBase {
             '#title' => $this
                 ->t('E-mail '),
             '#required' => "TRUE",
-            '#ajax' => array(
-                'callback' => array($this, 'validateTextAjax'),
-                'event' => 'change',
-            ),
             '#suffix' => '<span id="text-message-valeur"></span>',
         );
 
@@ -100,51 +88,44 @@ class EventsForm extends FormBase {
         }
     }
 
-    public function ValidateTextAjax(array &$form, FormStateInterface $form_state) {
-        $response = new AjaxResponse();
-
-        $field = $form_state->getTriggeringElement()['#name'];
-
-        $value_1_ajax = $form_state->getValue('valeur1');
-        if(!is_numeric($value_1_ajax)) {
-            $css = ['border' => '2px solid green', 'color' => 'green', 'background' => 'rgba(25, 188, 0,0.2)'];
-            $message = $form_state->getValue('valeur1');
-
-        } else {
-            $css = ['border' => '2px solid red', 'color' => 'red'];
-            $message = 'The value of the field must be a string!';
-        }
-
-        //if(!is_numeric($value_1_ajax))
-
-        $response->addCommand(new CssCommand('#edit-valeur1', $css));
-        $response->addCommand(new HtmlCommand('#text-message-' . $field, $message)) ;
-
-        return $response;
-    }
-
     public function submitForm(array &$form, FormStateInterface $form_state)
     {
+        $entityid = \Drupal::routeMatch()
+            ->getParameter('events_entity')->id();
+        $database = \Drupal::database();
+        $checkmail = $database
+            ->select('events_registered', 'er')
+            ->condition('eid',$entityid, '=')
+            ->fields('er', ['email'])
+            ->execute();
+
+        $items = [];
+        foreach ($checkmail as $clemail) {
+            $items[] = $clemail->email;
+        }
+
         $valeur1 = $form_state->getValue('valeur1');
         $valeur2 = $form_state->getValue('valeur2');
         $valeur3 = $form_state->getValue('valeur3');
         $current_user = \Drupal::currentUser();
         $userevents = \Drupal\user\Entity\User::load($current_user->id());
-        //ksm($userevents->id());
-        // Insert the new entity into a fictional table of all entities.
-        \Drupal::database()
-            ->insert('events_registered')
-            ->fields([
-                'uid' => $userevents->id(),
-                'firstName' => $valeur1,
-                'lasteName' => $valeur2,
-                'email' => $valeur3,
-            ])
-            ->execute();
+        $entityid = \Drupal::routeMatch()->getParameter('events_entity')->id();
 
-        $result = 'You are registered for the event';
-        $form_state->setRebuild()->addRebuildInfo('messageresult', $result);
-        $form_state->setRedirect('entity.events_entity.canonical');
-
+        if(!in_array($valeur3, $items)) {
+            // Insert the new entity into a fictional table of all entities.
+            \Drupal::database()
+                ->insert('events_registered')
+                ->fields([
+                    'uid' => $userevents->id(),
+                    'eid' => $entityid,
+                    'firstName' => $valeur1,
+                    'lasteName' => $valeur2,
+                    'email' => $valeur3,
+                ])
+                ->execute();
+            //$result = 'You are registered for the event';
+            //$form_state->setRebuild()->addRebuildInfo('messageresult', $result);
+            $form_state->setRedirect('entity.events_entity.canonical', ['events_entity' => $entityid, 'check' => 1]);
+        }
     }
 }

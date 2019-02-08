@@ -20,6 +20,12 @@ function events_schema() {
                 'unsigned' => TRUE,
                 'not null' => TRUE,
             ],
+            'eid' => [
+                'description' => 'Store entity EID.',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ],
            'firstName' => [
                 'description' => 'Registered First Name.',
                 'type' => 'varchar',

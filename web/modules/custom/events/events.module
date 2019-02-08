@@ -9,27 +9,24 @@
  * @return mixed
  */
  function events_preprocess_page(&$variable, $entity ) {
+     $entity = \Drupal::routeMatch()
+         ->getParameter('events_entity');
 
-     $entity = \Drupal::routeMatch()->getParameter('events_entity');
-     //kint($entity);
-     //exit;
      if ($entity) {
          $entitytype = $entity->bundle();
-         //kint($entitytype);
-         //exit;
 
          $form = \Drupal::formBuilder()
              ->getForm('Drupal\events\Form\EventsForm');
-         //kint($form);
-         //exit;
+         @$checkurlid = $_GET['check'];
+
          if('events_entity' == $entitytype) {
-             $variable['my_events'] = $form;
-     //kint($variable);
-             return $variable;
+             if($checkurlid != 1) {
+                 $variable['form_events'] = $form;
+             }
+                 $variable['checkmail'] = $checkurlid;
          }
          return $variable;
      }
      return $variable;
-
  }
 
