@@ -1,4 +1,4 @@
-uuid: 48837f4e-f14b-4d44-ae26-affc6df111ef
+uuid: ae668f01-92a5-4026-9c59-941b2cf13151
 langcode: en
 status: true
 dependencies:
@@ -9,13 +9,13 @@ dependencies:
     - testtheme
 id: events
 theme: testtheme
-region: sidebar_first
-weight: -7
+region: sidebar_second
+weight: 0
 provider: null
 plugin: events_block
 settings:
   id: events_block
-  label: Events
+  label: Participants
   provider: events
   label_display: '0'
 visibility:

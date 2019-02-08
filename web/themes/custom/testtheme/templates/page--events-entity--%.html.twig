@@ -144,11 +144,12 @@
         {% block content %}
           <a id="main-content"></a>
           {{ page.content }}
-            <hr>
-            <h3>Register for event</h3>
-            <hr>
-            {{ my_events }}
-
+            {% if checkmail != 1 %}
+                <hr>
+                <h3>Register for event</h3>
+                <hr>
+                {{ form_events }}
+            {% endif %}
         {% endblock %}
       </section>
 
