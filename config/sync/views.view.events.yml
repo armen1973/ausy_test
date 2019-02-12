@@ -1,4 +1,4 @@
-uuid: f8203a65-71ab-492b-9fcf-cb253be02c22
+uuid: 4691bc5f-b96c-450f-8024-0db51a0a87aa
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - events
 _core:
-  default_config_hash: NynWwA2mMCnDMG8rGKjVQvYC-xkmyyqlnNy1ow-8Gpc
+  default_config_hash: q3xuGTrUsur-n_DLDc1AM8JmAHX1oH8blsZk-oeh6oQ
 id: events
 label: Events
 module: views
@@ -170,7 +170,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: events
+      path: events-list
       menu:
         type: normal
         title: Events

@@ -11,11 +11,12 @@ navbar_position: fixed-top
 logo:
   path: 'public://logo_3.png'
   url: ''
-  use_default: true
+  use_default: false
+cdn_jsdelivr_theme: cerulean
+cdn_jsdelivr_version: 3.3.7
 features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
   node_user_picture: true
-cdn_jsdelivr_theme: cerulean
 table: ''

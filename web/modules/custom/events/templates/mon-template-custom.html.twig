@@ -20,7 +20,7 @@
  * - front_page: The URL of the front page. Use this instead of base_path when
  *   linking to the front page. This includes the language domain or prefix.
  *
- * Page content (in order of occurrence in the default page--events-entity--%.html.twig):
+ * Page content (in order of occurrence in the default mon-template-custom.html.twig):
  * - title_prefix: Additional output populated by modules, intended to be
  *   displayed in front of the main title tag that appears in the template.
  * - title: The page title, for use in the actual content.
@@ -51,6 +51,7 @@
  * @see html.html.twig
  */
 #}
+<body style="background-color: #e2f7dc;">
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}
@@ -62,7 +63,7 @@
         theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
       ]
     %}
-    <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+    <header class="navbar-fixed-top myheader" id="navbar" role="banner" style="background-color: #5D2800;">
       {% if not navbar_attributes.hasClass(container) %}
         <div class="{{ container }}">
       {% endif %}
@@ -94,8 +95,8 @@
 
 {# Main #}
 {% block main %}
-  <div role="main" class="main-container {{ container }} js-quickedit-main-content">
-    <div class="row">
+  <div role="main" class="eventcontent main-container {{ container }} js-quickedit-main-content">
+    <div class="row mysidebar">
 
       {# Header #}
       {% if page.header %}
@@ -143,13 +144,17 @@
         {# Content #}
         {% block content %}
           <a id="main-content"></a>
-          {{ page.content }}
             {% if checkmail != 1 %}
-                <hr>
-                <h3>Register for event</h3>
-                <hr>
+                {{ page.content }}
+                    <hr>
+                    <h3>Register for event</h3>
+                    <hr>
                 {{ form_events }}
+                {% elseif checkmail == 1 %}
+                    <h3 style="color: lightgreen; text-align: center; border: solid 2px lightgreen;">Your registration has been taken into account</h3>
+                {{ page.content }}
             {% endif %}
+            {{ ma_variable }}
         {% endblock %}
       </section>
 
@@ -172,3 +177,4 @@
     </footer>
   {% endblock %}
 {% endif %}
+</body>
