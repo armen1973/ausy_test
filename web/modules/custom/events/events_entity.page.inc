@@ -12,7 +12,7 @@ use Drupal\Core\Render\Element;
 /**
  * Prepares variables for Events entity templates.
  *
- * Default template: events_entity.html.twig.
+ * Default template: events.html.twig.
  *
  * @param array $variables
  *   An associative array containing:

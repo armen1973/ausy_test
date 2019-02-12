@@ -1,4 +1,4 @@
-uuid: ae668f01-92a5-4026-9c59-941b2cf13151
+uuid: ff0ad208-3966-4482-b9dd-df94e49999c8
 langcode: en
 status: true
 dependencies:
@@ -15,7 +15,7 @@ provider: null
 plugin: events_block
 settings:
   id: events_block
-  label: Participants
+  label: Events
   provider: events
   label_display: '0'
 visibility:

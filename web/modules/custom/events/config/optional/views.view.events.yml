@@ -5,6 +5,8 @@ dependencies:
     - system.menu.main
   module:
     - events
+_core:
+  default_config_hash: NynWwA2mMCnDMG8rGKjVQvYC-xkmyyqlnNy1ow-8Gpc
 id: events
 label: Events
 module: views
@@ -167,7 +169,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: events
+      path: events-list
       menu:
         type: normal
         title: Events

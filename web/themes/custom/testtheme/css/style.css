@@ -24,3 +24,40 @@
 }
 
 */
+
+body.navbar-is-fixed-top {
+    margin-top: 150px;
+}
+
+.mysidebar aside .well {
+    background-color: transparent;
+    color: rgba(93, 40, 0, 1);
+    border: transparent;
+}
+
+.menu--main, .menu--account {
+    margin-top: 50px;
+}
+
+.myheader ul li a {
+    background-color: transparent;
+    color: #fff;
+}
+
+.mysidebar aside .well h3 {
+    color: rgba(93, 40, 0, 1);
+    border-bottom: solid 2px rgba(93, 40, 0, 0.3);
+    padding-bottom: 5px;
+}
+.mysidebar section {
+    border-right: double 3px rgba(93, 40, 0, 0.3);
+    padding: 20px;
+}
+
+.mysidebar aside .well section {
+    border: transparent;
+}
+
+.eventcontent {
+    padding-top:60px;
+}

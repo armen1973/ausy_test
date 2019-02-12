@@ -8,25 +8,43 @@
  * @param $entity
  * @return mixed
  */
- function events_preprocess_page(&$variable, $entity ) {
-     $entity = \Drupal::routeMatch()
-         ->getParameter('events_entity');
 
-     if ($entity) {
-         $entitytype = $entity->bundle();
+function events_preprocess_mon_theme_custom(&$variable, $entity ) {
+    $entity = \Drupal::routeMatch()
+        ->getParameter('events_entity');
+    if ($entity) {
+        $entitytype = $entity->bundle();
+        $form = \Drupal::formBuilder()
+            ->getForm('Drupal\events\Form\EventsForm');
+        @$checkurlid = $_GET['check'];
 
-         $form = \Drupal::formBuilder()
-             ->getForm('Drupal\events\Form\EventsForm');
-         @$checkurlid = $_GET['check'];
+        if('events_entity' == $entitytype) {
+            if($checkurlid != 1) {
+                $variable['form_events'] = $form;
+            }
+            $variable['checkmail'] = $checkurlid;
+        }
+        return $variable;
+    }
+    return $variable;
+}
 
-         if('events_entity' == $entitytype) {
-             if($checkurlid != 1) {
-                 $variable['form_events'] = $form;
-             }
-                 $variable['checkmail'] = $checkurlid;
-         }
-         return $variable;
+function events_theme($existing, $type, $theme, $path) {
+     return array(
+         'mon_theme_custom' => array(
+             'variables' => array('ma_variable' => NULL),
+             'template' => 'mon-template-custom',
+         )
+     );
      }
-     return $variable;
- }
 
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for node templates.
+ */
+function events_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+    $entity = \Drupal::routeMatch()
+        ->getParameter('events_entity');
+    if ($entity) {
+        $suggestions[] = 'mon_theme_custom';
+    }
+}
